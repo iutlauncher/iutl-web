@@ -1,0 +1,15 @@
+{% extends "base.j2" %}
+
+{% block head %}
+	<script type="text/javascript" src="http://elasticlunr.com/elasticlunr.min.js"></script>
+	<script type="text/javascript" src="{{ ROOT }}static/home.min.js"></script>
+	<script type="text/javascript" src="{{ ROOT }}static/search_index.js"></script>
+	<link rel="stylesheet" href="{{ ROOT }}static/home.min.css" type="text/css">
+{% endblock %}
+
+{% block body %}
+	<form class="searchbar" action="">
+		<img src="https://res.cloudinary.com/louisdevie/image/upload/scalable/black/search.svg">
+		<input type="text" placeholder="Rechercher..." name="search" id="searchinput">
+	</form>
+{% endblock %}

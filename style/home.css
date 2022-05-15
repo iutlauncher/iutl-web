@@ -1,0 +1,25 @@
+.searchbar {
+	margin: 30px 0 30px 0;
+	border: 2px solid #aaa;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+	max-width: 500px;
+}
+
+.searchbar:focus-within {
+	border-color: var(--focus);
+}
+
+.searchbar input {
+	border: none;
+	margin: 5px;
+	padding: 0;
+	height: 20px;
+	outline: none;
+	flex-grow: 1;
+}
+
+.searchbar img {
+	height: 30px;
+}
