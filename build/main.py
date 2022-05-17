@@ -27,8 +27,7 @@ class Builder:
 
         entries = GamesData(self._gamesdir)
         entries.load()
-        entries.dump_json(self._destdir / "api.json")
-        entries.dump_search_index(self._destdir / "static" / "search_index.js")
+        entries.dump_json(self._destdir / "api")
 
         self.render(
             "index.j2",
@@ -41,6 +40,7 @@ class Builder:
             shutil.rmtree(self._destdir)
         os.mkdir(self._destdir)
         os.mkdir(self._destdir / "static")
+        os.mkdir(self._destdir / "api")
 
     def copy_stylesheets(self):
         for file in self._cssdir.glob("*.css"):

@@ -16,23 +16,19 @@ class GamesData:
                 game = yaml.full_load(f.read())
                 self._games.append(game)
 
-    def dump_json(self, output_file):
-        with open(output_file, "wt+", encoding="utf-8") as f:
-            f.write(json.dumps(self._games))
-
-    def dump_search_index(self, output_file):
-        c = 0
-        with open(output_file, "wt+", encoding="utf-8") as f:
-            f.write("const UNPROCESSED_INDEX=")
-            f.write(
-                json.dumps([self.flatten(game, c := c + 1) for game in self._games])
-            )
-            f.write(";")
+    def dump_json(self, output_dir):
+        with open(output_dir / "index.json", "wt+", encoding="utf-8") as f:
+            f.write(json.dumps([self.flatten(game) for game in self._games]))
+        for game in self._games:
+            with open(
+                output_dir / (game["uuid"] + ".json"), "wt+", encoding="utf-8"
+            ) as f:
+                f.write(json.dumps(game))
 
     @staticmethod
-    def flatten(game, uid):
+    def flatten(game):
         return {
-            "id": str(uid),
+            "uuid": game["uuid"],
             "title": game["title"],
-            "desc": game["description"],
+            "description": game["description"],
         }

@@ -9,10 +9,16 @@
 </head>
 <body onload="onLoad();">
 	<header>
-		<a href="{{ ROOT }}">
-			<img src="{{ ROOT }}static/logo.svg">
-		</a>
+		<div class="content">
+			<a href="{{ ROOT }}">
+				<img src="{{ ROOT }}static/logo.svg">
+			</a>
+		</div>
 	</header>
-	<main>{% block body %}{% endblock %}</main>
+	<main>
+		<div class="content">
+			{% block body %}{% endblock %}
+		</div>
+	</main>
 </body>
 </html>
