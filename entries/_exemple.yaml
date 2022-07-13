@@ -1,0 +1,47 @@
+---
+title: Nom du jeu
+description: Description courte / Phrase d'accroche
+tags:
+  - des balises
+  - utilisées par
+  - le moteur de recherche
+long-description: |
+  Description détaillées du jeu.
+
+  ↑ Une ligne vide sépare les paragraphes.
+
+  Cette section supporte le Markdown : vous pouvez
+  exprimer votre créativité avec du texte en *italique*,
+  en **gras**, ou en ***gras italique*** si vous êtes énervé.
+
+  # Vous pouvez ajouter des titres ...
+
+  ... pour organiser votre description. Vous pouvez aussi
+  mettre des [liens](https://monsite.fr).
+release: AAAA-MM-JJ # date de sortie du jeu
+team:
+  name: nom de l'équipe qui a créé le jeu
+  members:
+    - Liste
+    - Des Membres
+    - De L'équipe
+version: 1 # numéro de version unique
+repo: https://github.com/utilisateur/dépôt-du-code
+build:
+  type: http
+  url: http://lien.de/téléchargement/du/jeu.7z
+  # -- ou --
+  # type: mega
+  # link: LienDuFichier
+  # key: CléDeDécryptage
+
+# LES CHAMPS SUIVANTS SONT UILISÉS UNIQUEMENT POUR LES MÀJ #
+
+update-release: AAAA-MM-JJ
+update-patch:
+  type: http
+  url: http://lien.de/téléchargement/du/patch.7z
+  # mega est disponible aussi
+update-notes: |
+  Noueautés et correctifs apportés au jeu.
+  Le Markdown n'est pas supporté ici.
