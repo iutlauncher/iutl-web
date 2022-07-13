@@ -1,0 +1,4 @@
+cssmin==0.2.0
+Jinja2==3.1.2
+jsmin==3.0.1
+PyYAML==6.0

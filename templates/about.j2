@@ -1,0 +1,40 @@
+{% extends "base.j2" %}
+
+{% block head %}
+	<link rel="stylesheet" href="{{ ROOT }}static/about.min.css" type="text/css">
+{% endblock %}
+
+{% block body %}
+	<h1>À propos d'IUTLauncher</h1>
+	<h2>Quoi ?</h2>
+	<div>
+		IUTLauncher est une plateforme de distribution de logiciels
+		réservée pour les jeux (ou autres logiciels)
+		développés par les étudiants en Informatique à l'IUT de Dijon.
+	</div>
+	<h2>Pourquoi ?</h2>
+	<div>
+		Pourquoi pas ?
+	</div>
+	<h2>Comment ?</h2>
+	<div>
+		IUTLauncher est composé de trois parties :<br>
+		1 — un dépôt GitHub faisant office de base de données,<br>
+		2 — un site statique (hébergé par Netlify gratuitement) qui fournit une API
+		et permet de parcourir les jeux et de les installer manuellement,<br>
+		et 3 — une application de bureau qui permet d'installer et d'organiser
+		les jeux plus facilement.
+	</div>
+	<h2>Quand ?</h2>
+	<div>
+		Pensé et créé en 2022.
+	</div>
+	<h2>Qui ?</h2>
+	<div>
+		Développeurs du site :<br>
+		— Louis DEVIE<br>
+		<br>
+		Développeurs de l'application de bureau :<br>
+		<em>ça va arriver</em>
+	</div>
+{% endblock %}

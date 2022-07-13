@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ title }} — IUTLauncher</title>
+	<link rel="stylesheet" type="text/css" href="{{ ROOT }}static/shared.min.css">
+	{% block head %}{% endblock %}
+</head>
+<body onload="onLoad();">
+	<header>
+		<div class="content">
+			<a href="{{ ROOT }}.">
+				<img src="{{ ROOT }}static/logo.svg">
+			</a>
+		</div>
+	</header>
+	<main>
+		<div class="content">
+			{% block body %}{% endblock %}
+		</div>
+	</main>
+	<footer>
+		🄯 2022 — <a href="about">À propos</a> — <a href="api-docs">API</a>
+	</footer>
+</body>
+</html>
