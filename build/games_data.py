@@ -13,16 +13,14 @@ class GamesData:
     def load(self):
         for file in os.listdir(self._dir):
             with open(self._dir / file, "rt", encoding="utf-8") as f:
-                game = yaml.full_load(f.read())
+                game = yaml.safe_load(f.read())
                 self._games.append(game)
 
     def dump_json(self, output_dir):
-        with open(output_dir / "index.json", "wt+", encoding="utf-8") as f:
+        with open(output_dir / "index", "wt+", encoding="utf-8") as f:
             f.write(json.dumps([self.flatten(game) for game in self._games]))
         for game in self._games:
-            with open(
-                output_dir / (game["uuid"] + ".json"), "wt+", encoding="utf-8"
-            ) as f:
+            with open(output_dir / (game["uuid"]), "wt+", encoding="utf-8") as f:
                 f.write(json.dumps(game))
 
     @staticmethod

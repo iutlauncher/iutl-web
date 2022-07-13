@@ -29,11 +29,9 @@ class Builder:
         entries.load()
         entries.dump_json(self._destdir / "api")
 
-        self.render(
-            "index.j2",
-            "index.html",
-            title="Accueil",
-        )
+        self.render("index.j2", "index.html", title="Accueil")
+        self.render("about.j2", "about.html", title="À propos")
+        self.render("api.j2", "api-docs.html", title="Documentation de l'API")
 
     def cleanup(self):
         if self._destdir.is_dir():
@@ -67,12 +65,20 @@ class Builder:
             with open(file, "rt", encoding="utf-8") as f:
                 content = f.read()
 
-            with open(
-                self._destdir / "static" / (file.stem + ".min.js"),
-                "wt+",
-                encoding="utf-8",
-            ) as f:
-                f.write(jsmin.jsmin(content))
+            if file.match("*.min.js"):
+                with open(
+                    self._destdir / "static" / (file.stem + ".js"),
+                    "wt+",
+                    encoding="utf-8",
+                ) as f:
+                    f.write(content)
+            else:
+                with open(
+                    self._destdir / "static" / (file.stem + ".min.js"),
+                    "wt+",
+                    encoding="utf-8",
+                ) as f:
+                    f.write(jsmin.jsmin(content))
 
     def render(self, source, destination, **kwargs):
         template = self._env.get_template(str(source))

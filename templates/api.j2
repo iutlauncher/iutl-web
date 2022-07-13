@@ -1,0 +1,27 @@
+{% extends "base.j2" %}
+
+{% block head %}
+	<link rel="stylesheet" href="{{ ROOT }}static/about.min.css" type="text/css">
+{% endblock %}
+
+{% block body %}
+	<h1>Documentation de l'API</h1>
+	<h2>Récupérer la liste des jeux disponibles</h2>
+	<div>
+		Une requête HTTP à l'addresse <code>https://iutlauncher.netlify.app/api/index</code>
+		renvoie un document JSON contenat une liste de tous les jeux,
+		avec uniquement les informations suivantes:
+		UUID (<code>uuid</code>),
+		nom (<code>title</code>),
+		description courte (<code>description</code>),
+		balises pour le moteur de recherche (<code>tags</code>)
+		et URL de l'image de couverture (<code>cover-url</code>).
+	</div>
+	<h2>Récupérer toutes les informations sur un jeu</h2>
+	<div>
+		Pour récupérer les informations complètes sur un jeu,
+		il faut effectuer une requête à l'addresse
+		<code>https://iutlauncher.netlify.app/api/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</code>
+		où <em>xxxx...</em> est l'UUID du jeu.
+	</div>
+{% endblock %}

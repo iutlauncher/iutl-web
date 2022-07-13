@@ -1,14 +1,22 @@
 {% extends "base.j2" %}
 
 {% block head %}
-	<script type="text/javascript" src="http://elasticlunr.com/elasticlunr.min.js"></script>
+	<script type="text/javascript" src="{{ ROOT }}static/elasticlunr.min.js"></script>
 	<script type="text/javascript" src="{{ ROOT }}static/home.min.js"></script>
 	<link rel="stylesheet" href="{{ ROOT }}static/home.min.css" type="text/css">
 {% endblock %}
 
 {% block body %}
 	<form class="searchbar" action="", id="search">
-		<img src="https://res.cloudinary.com/louisdevie/image/upload/scalable/black/search.svg">
-		<input type="text" placeholder="Rechercher un jeu, une application..." name="search" id="searchinput">
+		<button>
+			<img src="https://res.cloudinary.com/louisdevie/image/upload/scalable/black/search.svg"/>
+		</button>
+		<input
+			type="text"
+			placeholder="Rechercher un jeu, une application..."
+			name="search"
+			id="searchinput"
+			required
+		/>
 	</form>
 {% endblock %}

@@ -2,22 +2,27 @@ function onLoad() {
 	let params = new URLSearchParams(window.location.href.split('?')[1]);
 
 	if (params.has("search")) {
-		document.getElementById("searchinput").value = params.get("search");
-		search(params.get("search")).then(
+		const query = params.get("search");
+
+		document.getElementById("searchinput").value = query;
+		document.title = "Résultats pour « " + params.get("search") + " » — IUTLauncher";
+		document.getElementById("search").insertAdjacentHTML("afterend", loadingBlock("Résultats de la recherche", "search-results"));
+
+		search(query).then(
 			function (val) {
-				displayResults(val.map(r => r.doc), "search-results");
+				displayResults("search-results", query, val.map(r => r.doc));
 			},
 			function (err) {
 				displayError("search-results");
 				console.error(err);
 			}
 		);
-		document.title = "Résultats pour « " + params.get("search") + " » — IUTLauncher";
-		document.getElementById("search").insertAdjacentHTML("afterend", loadingBlock("Résultats de la recherche", "search-results"))
 	}
 	else
 	{
 		for (let e of document.getElementsByTagName("form")) e.reset();
+
+		
 	}
 }
 
@@ -34,7 +39,7 @@ async function search(query) {
 
 	var response, unprocessedIndex;
 
-	await fetch("api/index.json").then(
+	await fetch("api/index").then(
 		function (val) {
 			response = val;
 		},
@@ -56,19 +61,40 @@ async function search(query) {
 		searchIndex.addDoc(doc);
 	}
 
-	await __sleep(2000);
+	//await __sleep(2000);
 
 	return searchIndex.search(query, {expand: true});
 }
 
-function displayResults(results, id) {
-	
+function displayResults(id, query, results) {
+	e = document.getElementById(id);
+	e.classList.remove("loading");
+
+	if (results.length == 0) {
+		e.classList.add("no-results");
+		e.innerHTML = '<span>Aucun résultat trouvé pour « ' + query + ' »</span>';
+	} else {
+		e.classList.add("results");
+		if (results.length < 2) {
+			e.style.maxWidth = (results.length * 250).toString() + "px";
+		}
+		e.innerHTML = results.map(gameCard).join("");
+	}
+}
+
+function gameCard(game) {
+	return '<a class="card" href="'
+		+ game.uuid
+		+ '"><img src="static/dino.jpeg"><span class="card-title">'
+		+ game.title
+		+ '</span><span class="card-description">'
+		+ game.description
+		+ '</span></a>';
 }
 
 function displayError(id) {
 	e = document.getElementById(id);
 	e.classList.remove("loading");
-	e.classList.add("fail");
 	e.innerHTML = '<span>Une erreur est survenue</span>';
 }
 

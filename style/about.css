@@ -1,0 +1,21 @@
+h1 {
+	font-size: 20pt;
+}
+
+h2 {
+	font-size: 16pt;
+	margin-top: 25px;
+	margin-bottom: 10px;
+}
+
+div {
+	padding-left: 20px;
+}
+
+code {
+	font-family: inherit;
+	background-color: lightgrey;
+	padding-left: 0.5ch;
+	padding-right: 0.5ch;
+	border-radius: 0.5ch;
+}

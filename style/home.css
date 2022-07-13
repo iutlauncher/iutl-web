@@ -20,8 +20,16 @@
 	flex-grow: 1;
 }
 
+.searchbar button {
+	padding: 0;
+	margin: 0;
+	border: none;
+	background: none;
+}
+
 .searchbar img {
 	height: 30px;
+	cursor: pointer;
 }
 
 .block-heading {
@@ -78,7 +86,7 @@ h2 {
 	}
 }
 
-.fail {
+.fail, .no-results {
 	display: flex;
 	height: 200px;
 	align-items: center;
@@ -87,4 +95,37 @@ h2 {
 
 .fail span {
 	color: red;
+}
+
+.results {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	align-items: center;
+}
+
+.card img {
+	object-fit: contain;
+	height: 200px;
+}
+
+.card > * {
+	width: 300px;
+}
+
+.card-title {
+	color: black;
+	font-size: 14pt;
+}
+
+.card-description {
+	color: grey;
+	font-size: 12pt;
 }
