@@ -1,4 +1,5 @@
 ---
+uuid: XXXXXXXX-XXX-XXX-XXXXXXXXXXXX
 title: Nom du jeu
 description: Description courte / Phrase d'accroche
 tags:
@@ -25,15 +26,35 @@ team:
     - Liste
     - Des Membres
     - De L'équipe
-version: 1 # numéro de version unique
 repo: https://github.com/utilisateur/dépôt-du-code
-build:
+images:
+  - cover: https://github.com/utilisateur/dépôt-du-code/couverture.png
+  - gallery:
+      - https://github.com/utilisateur/dépôt-du-code/screenshot-1.png
+      - https://github.com/utilisateur/dépôt-du-code/screenshot-2.png
+      - https://github.com/utilisateur/dépôt-du-code/screenshot-3.png
+version: 1 # numéro de version unique
+package:
   type: http
   url: http://lien.de/téléchargement/du/jeu.7z
   # -- ou --
   # type: mega
   # link: LienDuFichier
   # key: CléDeDécryptage
+
+# FOURNIR UNE VERSION À INSTALLER MANUELLEMENT #
+
+standalone:
+  type: http
+  url: http://lien.de/téléchargement/du/jeu_installer.exe
+  # mega est disponible aussi
+
+# FOURNIR UNE VERSION SPÉCIALE POUR L'ETIQONSOLE #
+
+package-etiqonsole:
+  type: http
+  url: http://lien.de/téléchargement/du/jeu_console.7z
+  # mega est disponible aussi
 
 # LES CHAMPS SUIVANTS SONT UILISÉS UNIQUEMENT POUR LES MÀJ #
 
